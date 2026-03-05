@@ -1,0 +1,49 @@
+(defvar
+  ;; The key must be pressed twice in 200ms to enable repetitions.
+  tap_timeout       200
+  ;; The key must be held 200ms to become a layer shift.
+  hold_timeout      200
+  ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
+  long_hold_timeout 220
+  chord_timeout     20
+  dance_timeout     200
+)
+
+(defalias
+  ;; Ctrl-Shit with arrows
+  ww   (tap-hold       $tap_timeout $long_hold_timeout w    (multi lalt lsft (layer-while-held nav)))
+  ;; Alt-Shit with arrows
+  ee   (tap-hold       $tap_timeout $long_hold_timeout e    (multi lctl lsft (layer-while-held nav)))
+
+  ;; Home row mods
+  aa   (tap-hold       $tap_timeout $long_hold_timeout a    (layer-while-held nav))
+  ss   (tap-hold       $tap_timeout $long_hold_timeout s    @shortcutsalt)
+  dd   (tap-hold       $tap_timeout $long_hold_timeout d    @shortcutsctl)
+  ff   (tap-hold       $tap_timeout $long_hold_timeout f    lsft)
+  jj   (tap-hold       $tap_timeout $long_hold_timeout j    rsft)
+  kk   (tap-hold       $tap_timeout $long_hold_timeout k    @shortcutsctl)
+  ll   (tap-hold       $tap_timeout $long_hold_timeout l    @shortcutsalt)
+  rmet (tap-hold       $tap_timeout $long_hold_timeout ;    (layer-while-held nav))
+
+  ;; Thumbs
+  met  @shortcutsmet
+  alt  @shortcutsalt
+  lctl (tap-hold       $tap_timeout $hold_timeout      spc  @shortcutsctl)
+  sym  ralt
+  rctl (tap-hold-press $tap_timeout $hold_timeout      del  @shortcutsctl)
+
+  ;; Nav
+  naa  lsft
+  nss  (tap-hold       $tap_timeout $long_hold_timeout bck lalt)
+  ndd  (tap-hold       $tap_timeout $long_hold_timeout fwd lctl)
+  nff  (tap-hold       $tap_timeout $long_hold_timeout @zoot lsft)
+)
+
+(defcfg
+  ;; Enabled makes kanata process keys that are not defined in defsrc
+  ;; Fixes altgr for Windows (see Arsenik issue #22)
+  process-unmapped-keys yes
+  windows-altgr cancel-lctl-press
+  concurrent-tap-hold true ;; for defchordsv2 to work
+  danger-enable-cmd false
+)
