@@ -1,0 +1,9 @@
+
+(defchordsv2
+  ;; Map evil copilot key to Return
+  (lsft lmet f23) del 10 first-release ()
+  (q   w) esc  $chord_timeout first-release ()
+  (w   e) tab  $chord_timeout first-release ()
+  (i   o) bspc $chord_timeout first-release ()
+  (k   l) ret  $chord_timeout first-release ()
+)
