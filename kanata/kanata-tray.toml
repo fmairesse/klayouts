@@ -27,6 +27,16 @@ kanata_executable = '/home/fabien/bin/kanata'
 kanata_config = './qwerty-angle-mod.kbd'
 autorun = false
 
+[presets.'Qwertek']
+kanata_executable = '/home/fabien/bin/kanata'
+kanata_config = './qwertek.kbd'
+autorun = false
+
+[presets.'Qwertek angle mod']
+kanata_executable = '/home/fabien/bin/kanata'
+kanata_config = './qwertek-angle-mod.kbd'
+autorun = false
+
 [presets.'Ergol']
 kanata_executable = '/home/fabien/bin/kanata'
 kanata_config = './ergol.kbd'
