@@ -5,7 +5,7 @@
 ### Ubuntu 24
 
 ```
-sudo env "PATH=$PATH" xkalamine install ergol.toml && sudo env "PATH=$PATH" xkalamine install lafayette.toml && setxkbmap
+sudo env "PATH=$PATH" xkalamine install qzertyl.toml && sudo env "PATH=$PATH" xkalamine install lafayette.toml && setxkbmap
 ```
 
 ## Differences
