@@ -114,7 +114,7 @@
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200]
 	],
 	"combo": [
-		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+		["KC_DOT", "KC_UP", "KC_NO", "KC_NO", "KC_SLASH"],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
