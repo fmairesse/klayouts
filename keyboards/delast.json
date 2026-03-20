@@ -146,7 +146,7 @@
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"]
 	],
 	"key_override": [
-		{ "trigger": "KC_UP", "replacement": "KC_SLASH", "layers": 3, "trigger_mods": 64, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 135 },
+		{ "trigger": "KC_UP", "replacement": "KC_SLASH", "layers": 1, "trigger_mods": 64, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 135 },
 		{ "trigger": "TD(0)", "replacement": "KC_BSLASH", "layers": 1, "trigger_mods": 157, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 143 },
 		{ "trigger": "KC_NO", "replacement": "KC_NO", "layers": 65535, "trigger_mods": 0, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 7 },
 		{ "trigger": "KC_NO", "replacement": "KC_NO", "layers": 65535, "trigger_mods": 0, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 7 },
