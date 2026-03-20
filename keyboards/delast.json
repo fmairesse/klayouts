@@ -80,7 +80,7 @@
 	"vial_protocol": 6,
 	"via_protocol": 9,
 	"tap_dance": [
-		["KC_LSHIFT", "KC_LSHIFT", "KC_CAPSLOCK", "KC_LSHIFT", 200],
+		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
@@ -146,10 +146,10 @@
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"]
 	],
 	"key_override": [
-		{ "trigger": "KC_UP", "replacement": "KC_SLASH", "layers": 3, "trigger_mods": 64, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 135 },
-		{ "trigger": "KC_Z", "replacement": "KC_BSLASH", "layers": 1, "trigger_mods": 157, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 143 },
-		{ "trigger": "RSFT_T(KC_J)", "replacement": "KC_Z", "layers": 1, "trigger_mods": 157, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 139 },
-		{ "trigger": "RCTL_T(KC_K)", "replacement": "KC_J", "layers": 1, "trigger_mods": 157, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 139 },
+		{ "trigger": "KC_UP", "replacement": "KC_SLASH", "layers": 1, "trigger_mods": 64, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 135 },
+		{ "trigger": "KC_W", "replacement": "KC_LBRACKET", "layers": 1, "trigger_mods": 157, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 143 },
+		{ "trigger": "KC_Z", "replacement": "KC_RBRACKET", "layers": 1, "trigger_mods": 157, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 135 },
+		{ "trigger": "KC_NO", "replacement": "KC_NO", "layers": 65535, "trigger_mods": 0, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 7 },
 		{ "trigger": "KC_NO", "replacement": "KC_NO", "layers": 65535, "trigger_mods": 0, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 7 },
 		{ "trigger": "KC_NO", "replacement": "KC_NO", "layers": 65535, "trigger_mods": 0, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 7 },
 		{ "trigger": "KC_NO", "replacement": "KC_NO", "layers": 65535, "trigger_mods": 0, "negative_mod_mask": 0, "suppressed_mods": 0, "options": 7 },
