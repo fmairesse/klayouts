@@ -81,7 +81,7 @@
 	"via_protocol": 9,
 	"tap_dance": [
 		["KC_W", "KC_BSLASH", "KC_NO", "KC_NO", 100],
-		["KC_X", "KC_Z", "KC_NO", "KC_NO", 100],
+		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
