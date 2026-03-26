@@ -1,46 +1,142 @@
-;; Needed by common
-(defalias
-  shortcutsctl (multi lctl (layer-while-held azerty))
-  shortcutsalt (multi lalt (layer-while-held azerty))
-  shortcutsmet (multi lmet (layer-while-held azerty))
-  zoin C-+
-  zoot C--
+(defvar
+  ;; The key must be pressed twice in 200ms to enable repetitions.
+  tap_time       200
+  ;; The key must be held 200ms to become a layer shift.
+  hold_time      200
+  ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
+  long_hold_time 220
+  chord_time     20
+  dance_time     200
+
+  left_hand_keys (
+      q w e r t
+      a s d f g
+    < z x c v b
+  )
+  right_hand_keys (
+    y u i o p [ bspc
+    h j k l ;
+    n m , . /
+  )
 )
 
-(include _common.kbd)
-(include _wide-mod.kbd)
+(deffakekeys
+  to_base (layer-switch base)
+  to_angle_mod (layer-switch angle_mod)
+)
+
+(defalias
+  toam    (layer-switch angle_mod)
+  toba    (layer-switch base)
+  tsft    (tap-hold       $tap_time $hold_time   caps lsft)
+
+  ;; Modifiers
+  ctl     (multi lctl (layer-while-held azerty))
+  ct_a    (multi lctl (layer-while-held azerty_angle_mod))
+  tc      (tap-hold    $tap_time $hold_time      spc  @ctl)
+  tc_a    (tap-hold    $tap_time $hold_time      spc  @ct_a)
+  alt     (multi lalt (layer-while-held azerty))
+  al_a    (multi lalt (layer-while-held azerty_angle_mod))
+  met     (multi lmet (layer-while-held azerty))
+  me_a    (multi lmet (layer-while-held azerty_angle_mod))
+
+  ;; Home row mods
+  tap_hrm (multi
+    (layer-switch no_hrm)
+    (on-idle-fakekey to_base tap 20)
+  )
+  tap_hrm_a (multi
+    (layer-switch no_hrm)
+    (on-idle-fakekey to_angle_mod tap 20)
+  )
+  aa      (tap-hold       $tap_time $long_hold_time a    (layer-while-held nav))
+  ss      (tap-hold-release-keys $tap_time $hold_time (multi s @tap_hrm) @alt  $left_hand_keys)
+  ss_a    (tap-hold-release-keys $tap_time $hold_time (multi s @tap_hrm_a) @al_a $left_hand_keys)
+  dd      (tap-hold       $tap_time $long_hold_time d    @ctl)
+  dd_a    (tap-hold       $tap_time $long_hold_time d    @ct_a)
+  ff      (tap-hold-release-keys $tap_time $hold_time (multi f @tap_hrm) lsft $left_hand_keys)
+  jj      (tap-hold-release-keys $tap_time $hold_time (multi j @tap_hrm_a) rsft $right_hand_keys)
+  kk      (tap-hold       $tap_time $long_hold_time k    @ctl)
+  kk_a    (tap-hold       $tap_time $long_hold_time k    @ct_a)
+  ll      (tap-hold       $tap_time $long_hold_time l    @alt)
+  ll_a    (tap-hold       $tap_time $long_hold_time l    @al_a)
+  mm      (tap-hold       $tap_time $long_hold_time ;    (layer-while-held nav))
+
+  ;; Nav
+  zoin    C-+
+  zoot    C--
+  naa     lsft
+  ndd     (tap-hold       $tap_time $long_hold_time bck lctl)
+  nff     (tap-hold       $tap_time $long_hold_time fwd lsft)
+
+)
 
 (defsrc
-  q     w     e     r     t               y     u     i     o     p
-  a     s     d     f     g               h     j     k     l     ;
-  <     z     x     c     v       b       n     m     ,     .     /
-  lctl  lmet              lalt   spc   ralt  rctl
+  `
+  tab         q     w     e     r     t               y     u     i     o     p     [
+  caps        a     s     d     f     g               h     j     k     l     ;
+  lsft  <     z     x     c     v     b               n     m     ,     .     /
+  lctl  lmet  lalt                          spc                            rctl
 )
 
 (deflayer base
-  q     @ww   @ee   r     t               y     u     i     o     p
-  @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet
-  z     x     c     v     b     lrld      n     m     ,     .     /
-  @lctl @met              @lalt @lctl @ralt @rctl
+  @toam
+  esc         q     w     e     r     t               y     u     i     o     p  bspc
+  tab         @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll   @mm
+  @tsft <     z     x     c     v     b               n     m     ,     .     /
+  @ctl  @met  @alt                         @tc                             @ctl
+)
+
+(deflayer angle_mod
+  @toba
+  esc         _     _     _     _     _               _     _     _     _     _  bspc
+  tab         @aa   @ss_a @dd_a @ff   g               h   @jj @kk_a @ll_a   @mm
+  @tsft z     x     c     v     b     XX              _     _     _     _     _
+  @ct_a @me_a @al_a                         @tc_a                         @ct_a
+)
+
+(deflayer no_hrm
+  _
+  _           _     _     _     _     _               _     _     _     _     _     _
+  _           _     s     d     _     _               _     _     k     l     _
+  _     _     _     _     _     _     _               _     _     _     _     _ 
+  _     _     _                             @tc_a                             _
 )
 
 (deflayer nav
-  esc   XX    XX    @zoin XX           pgup  home    up   end   esc
-  tab   @nss  @ndd  @nff  XX           pgdn   lft  down  rght   tab
-  XX    XX    XX    XX    XX      _      XX    XX    XX    XX    XX
-  _     _                 _       _       _     _
-)
-
-(deflayer qwerty
-  _     _     _     _     _               _     _     _     _     _
-  _     _     _     _     _               _     _     _     _     _
-  <     z     x     c     v       b       n     m     ,     .     /
-  _     _                 _       _       _     _
+  _
+  _           esc   XX    @zoot @zoin XX           pgup  home    up   end   esc     _
+  _           tab   XX    @ndd  @nff  XX           pgdn   lft  down  rght   tab
+  _     XX    XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
+  _     _     _                              _                                _
 )
 
 (deflayer azerty
-  a     z     _     _     _               _     _     _     _     _
-  q     _     _     _     _               _     _     _     _     m
-  <     w     x     c     v       b       n     ;     ,     .     /
-  _     _                 _       _       _     _
+  _
+  _           a     z     _     _     _               _     _     _     _     _     _
+  _           q     _     _     _     _               _     _     _     _     m
+  _     <     w     _     _     _     _               _     ;     _     _     _
+  _     _     _                              _                                _
+)
+
+(deflayer azerty_angle_mod
+  _
+  _           a     z     _     _     _               _     _     _     _     _     _
+  _           q     _     _     _     _               _     _     _     _     m
+  _     <     w     x     c     v     b               _     ;     _     _     _
+  _     _     _                              _                                _
+)
+
+(defcfg
+  ;; Enabled makes kanata process keys that are not defined in defsrc
+  ;; Fixes altgr for Windows (see Arsenik issue #22)
+  process-unmapped-keys yes
+  windows-altgr cancel-lctl-press
+  concurrent-tap-hold true ;; for defchordsv2 to work
+  danger-enable-cmd false
+)
+
+(defchordsv2
+  ;; Map evil copilot key to del
+  (lsft lmet f23) del 10 first-release ()
 )
