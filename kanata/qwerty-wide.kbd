@@ -1,5 +1,5 @@
  ;; Needed by common
-(defaliaz
+(defalias
   shortcutsctl (multi lctl (layer-while-held azerty))
   shortcutsalt (multi lalt (layer-while-held azerty))
   shortcutsmet (multi lmet (layer-while-held azerty))
@@ -13,28 +13,35 @@
 (defsrc
   q     w     e     r     t               y     u     i     o     p     [
   a     s     d     f     g               h     j     k     l     ;     '
-  z     x     c     v     b               n     m     ,     .     /  rsft
+  <     z     x     c     v       b       n     m     ,     .     /  rsft
   lctl  lmet              lalt   spc   ralt  rctl
  )
 
 (deflayer base
   q     @ww   @ee   r     t              XX     y     u     i     o     p
   @aa   @ss   @dd   @ff   g              XX     h   @jj   @kk   @ll @rmet
-  z     x     c     v     b              XX     n     m     ,     .     /
+  z     x     c     v     b     lrld     XX     n     m     ,     .     /
   @lctl @met              @lalt @lctl @ralt @rctl
 )
 
-(deflayer nav
-  esc   XX    XX    @zoin XX             XX  pgup  home    up   end   esc
+(deflayer navleft
+  esc   XX    @zoot @zoin XX             XX  pgup  home    up   end   esc
   tab   @nss  @ndd  @nff  XX             XX  pgdn   lft  down  rght   tab
-  XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX    XX
-  _     _                 _       _       _     _
+  XX    XX    XX    XX    XX      _      XX    XX    XX    XX    XX    XX
+  _     _                 _      ret   bspc     _
+)
+
+(deflayer navright
+  esc   XX    XX    @zoin XX             XX    XX    XX    XX    XX    XX
+  tab   @nss  @ndd  @nff  XX             XX    XX  rsft  rctl  lalt    XX
+  XX    XX    XX    XX    XX      _      XX    XX    XX    XX    XX    XX
+  _     _                 bspc   ret      _     _
 )
 
 (deflayer qwerty
   q     w     e     r     t               y     u     i     o     p     [
   a     s     d     f     g               h     j     k     l     ;     '
-  z     x     c     v     b               n     m     ,     .     /  rsft
+  <     z     x     c     v       b       n     m     ,     .     /  rsft
   _     _                 _       _       _     _
 )
 
