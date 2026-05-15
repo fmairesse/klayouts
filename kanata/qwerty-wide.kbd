@@ -11,6 +11,7 @@
 (include _wide-mod.kbd)
 
 (defsrc
+  `
   q     w     e     r     t               y     u     i     o     p     [
   a     s     d     f     g               h     j     k     l     ;     '
   <     z     x     c     v       b       n     m     ,     .     /  rsft
@@ -18,6 +19,7 @@
  )
 
 (deflayer base
+  esc
   q     @ww   @ee   r     t              XX     y     u     i     o     p
   @aa   @ss   @dd   @ff   g              XX     h   @jj   @kk   @ll @rmet
   z     x     c     v     b     lrld     XX     n     m     ,     .     /
@@ -25,20 +27,23 @@
 )
 
 (deflayer navleft
+  _
   esc   XX    @zoot @zoin XX             XX  pgup  home    up   end   esc
   tab   @nss  @ndd  @nff  XX             XX  pgdn   lft  down  rght   tab
   XX    XX    XX    XX    XX      _      XX    XX    XX    XX    XX    XX
-  _     _                 _      ret   bspc     _
+  _     _                 del    ret   bspc     _
 )
 
 (deflayer navright
+  _
   esc   XX    XX    @zoin XX             XX    XX    XX    XX    XX    XX
   tab   @nss  @ndd  @nff  XX             XX    XX  rsft  rctl  lalt    XX
   XX    XX    XX    XX    XX      _      XX    XX    XX    XX    XX    XX
-  _     _                 bspc   ret      _     _
+  _     _                 bspc   ret    del     _
 )
 
 (deflayer qwerty
+  _
   q     w     e     r     t               y     u     i     o     p     [
   a     s     d     f     g               h     j     k     l     ;     '
   <     z     x     c     v       b       n     m     ,     .     /  rsft
@@ -46,8 +51,9 @@
 )
 
 (deflayer azerty
-  a     z     _     _     _               y     u     i     o     p     [
+  _
+  a     ]     _     _     _               y     u     i     o     p     [
   q     _     _     _     _               h     j     k     l     m     '
-  <     w     x     c     v       b       n     ;     ,     .     /  rsft
+  \     w     x     c     v       b       n     ;     ,     .     /  rsft
   _     _                 _       _       _     _
 )

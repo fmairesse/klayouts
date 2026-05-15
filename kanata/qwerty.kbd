@@ -31,7 +31,7 @@
   esc   XX    @zoot @zoin XX           pgup  home    up   end   esc    XX
   tab   @nss  @ndd  @nff  XX           pgdn   lft  down  rght   tab
   XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
-  _     _                 _      ret   bspc     _
+  _     _                 del    ret   bspc     _
 )
 
 (deflayer navright
@@ -39,13 +39,13 @@
   esc   XX    @zoot @zoin XX             XX    XX    XX    XX    XX    XX
   tab   @nss  @ndd  @nff  XX             XX  rsft  rctl  lalt    XX
   XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
-  _     _                 bspc   ret      _     _
+  _     _                 bspc   ret    del     _
 )
 
 (deflayer azerty
   _
   a     ]     _     _     _               _     _     _     _     _     _
   q     _     _     _     _               _     _     _     _     m
-  [     _     _     _     _               _     ;     _     _     _
+  \     _     _     _     _               _     ;     _     _     _
   _     _                 _       _       _     _
 )
