@@ -1,0 +1,64 @@
+name        = "Loup"
+name8       = "loup"
+locale      = "fr"
+variant     = "loup"
+description = "French (Loup)"
+author      = "fmairesse"
+url         = "https://github.com/fmairesse/klayouts"
+geometry    = "ERGO"
+version     = "0.0.1"
+
+# Optimized layout for french/english:
+# - Qwerty/Azerty based:
+#    - 13/30 keys moved from their initial position (21 for Colemak-DH, 23 for Ergol, 18 for Norman)
+#    - 2 keys moved from left/right side
+#    - Shortcuts preserved: ZXCVB cluster, Q, W, A, S unchanged
+# - Easy transition:
+#    - intermediate tarmak-like layouts with no temporary location of keys: all transitions move keys to their final location, contrary to Tarmak.
+#    - 3 steps when moving from Qwerty +1 if moving from azerty. Tarmak has 5, Tarmak-DH has 7.
+#    - Azerty compatible: you may choose to let A and M to their initial position
+# - Good finger load (49%/51%) (55/45 for Ergol)
+# - Good LSB (for column aligned keyboards): 2.61% VS 5.03% for Ergol
+# - Not so good SFU but acceptable to me on a column aligned keyboard: 1.97% VS 0.73% for Ergol
+# - Rolls 19.% inward and 14.5% VS 19.6%/16.1%. Some good one:
+#    - en, in, th, ien, ion, wh, me
+
+
+base = '''
+╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮
+┆ ~   ┃ ! „ │ @ “ │ # ” │ $ ¢ │ % ‰ ┃ ^   │ &   │ *   │ (   │ )   ┃ _   ┆ + ± ┆
+┆ `   ┃ 1 ¡ │ 2 « │ 3 » │ 4 £ │ 5 € ┃ 6 ¥ │ 7 ¤ │ 8 § │ 9 ¶ │ 0 ° ┃ - — ┆ = ≠ ┆
+╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
+·     ┃ Q   │ W   │ H   │ D ™ │ F   │ Y   │ L   │ O   ┃ U   │ P   │ ? ¿ ┆ Z   ┆
+·     ┃     │   é │   è │   « │   » ┃     │   ô │   œ ┃   û │   ù │***¨ ┆     ┆
+·     ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
+·     ┃ A   │ S   │ R   │ T ª │ G   │ J   │ N   │ E   │ I   │ ? ¿ ┃ "   ┆ W   ┆
+·     ┃   à │   ß │   ê │   ‑ │   – ┃     │     │     │   ï │***¨ ┃ '   ┆     ┆
+╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
+┆ ? ¿ ┃ Z   │ X   │ C   │ V   │ B   │ K   │ M º │ ; • │ :   │ ? ÷ ┃           ·
+┆***¨ ┃   æ │   × │   ç │   _ │   — ┃   ñ │  *µ │ , · │ . … │ / ¿ ┃           ·
+╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚ · · · · · ·
+'''
+
+altgr = '''
+╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮
+┆     ┃   ¹ │   ² │   ³ │   ⁴ │   ⁵ ┃   ⁶ │   ⁷ │   ⁸ │   ⁹ │   ⁰ ┃     ┆     ┆
+┆     ┃   ₁ │   ₂ │   ₃ │   ₄ │   ₅ ┃   ₆ │   ₇ │   ₈ │   ₉ │   ₀ ┃     ┆     ┆
+╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
+·     ┃  *^ │   ≤ │   ≥ │   € │   ‰ ┃   ° │     │   × │  *´ │  *` ┃     ┆     ┆
+·     ┃   ^ │   < │   > │   $ │   % ┃   @ │   & │   * │   ' │   ` ┃     ┆     ┆
+·     ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
+·     ┃  *ˇ │   ⁽ │   ⁾ │  *˙ │   ≠ ┃  */ │   ± │  *¯ │   ÷ │  *” ┃     ┆     ┆
+·     ┃   { │   ( │   ) │   } │   = ┃   \ │   + │   - │   / │   " ┃     ┆     ┆
+╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
+┆     ┃  *~ │  *, │  *˛ │   – │     ┃   ← │   → │   ⟹ │   ⟺ │  *˘ ┃           ·
+┆     ┃   ~ │   [ │   ] │   _ │   # ┃   | │   ! │   ; │   : │   ? ┃           ·
+╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚ · · · · · ·
+'''
+
+[spacebar]
+shift       = "\u202f"  # NARROW NO-BREAK SPACE
+altgr       = "\u00a0"  # NO-BREAK SPACE
+altgr_shift = "\u00a0"  # NO-BREAK SPACE
+1dk         = "\u2019"  # RIGHT SINGLE QUOTATION MARK
+1dk_shift   = "\u2019"  # RIGHT SINGLE QUOTATION MARK
