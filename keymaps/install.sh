@@ -1,0 +1,1 @@
+sudo env "PATH=$PATH" xkalamine install $1 && setxkbmap
