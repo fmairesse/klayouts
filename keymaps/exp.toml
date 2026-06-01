@@ -1,0 +1,65 @@
+name        = "Exp FMA - Loup"
+name8       = "exp-fma"
+locale      = "fr"
+variant     = "exp-fma"
+description = "French (Experiment FMA)"
+author      = "fmairesse"
+url         = "https://github.com/fmairesse/klayouts"
+geometry    = "ERGO"
+version     = "0.0.1"
+
+
+base = '''
+╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮
+┆ ~   ┃ ! „ │ @ “ │ # ” │ $ ¢ │ % ‰ ┃ ^   │ &   │ *   │ (   │ )   ┃ _   ┆ + ± ┆
+┆ `   ┃ 1 ¡ │ 2 « │ 3 » │ 4 £ │ 5 € ┃ 6 ¥ │ 7 ¤ │ 8 § │ 9 ¶ │ 0 ° ┃ - — ┆ = ≠ ┆
+╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
+·     ┃ Q   │ W   │ J   │ R ™ │ T   │ Y   │ U   │ I   ┃ O   │ P   │ ? ¿ ┆ Z   ┆
+·     ┃   â │   é │   è │   « │   » ┃     │   ù │   ï │   œ │     │***¨ ┆     ┆
+·     ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
+·     ┃ A   │ S   │ D   │ F ª │ G   │ H   │ N   │ E   │ L   │ ? ¿ ┃ "   ┆ W   ┆
+·     ┃   à │   ß │   ê │   ‑ │   – ┃   ŷ │   û │   î │   ô │***¨ ┃ '   ┆     ┆
+╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
+┆ À   ┃ Z   │ X   │ C   │ V   │ B   │ :   │ M º │ ; • │ K   │ ? ÷ ┃           ·
+┆     ┃   æ │   × │   ç │   _ │   — ┃ . … │  *µ │ , · │   … │ / ¿ ┃           ·
+╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚ · · · · · ·
+'''
+
+# The AltGr layer focuses on the 28 programming symbols:
+#   - 10 symbols over the numbers
+#   - 2×8 symbols on the extra pinky keys (base and shift layers)
+#   - 2 symbols on the lower-right key (/?)
+#   -> the 3×10 alpha pad can fit these 28 symbols + ; and :
+# Rationale:
+#   - {()}<> signs on ASDFWE (= most comfortable positions)
+#   - 1st row: most frequent chars from the number row ($%^&* below 45678)
+#              (last-minute change: @^ are swapped to match Ergo‑L 1.0)
+#   - 2nd row: arithmetical signs
+#   - 3rd row: shell / punctuation signs
+# Efficiency:
+#   - no symbols outside of the 3×10 alpha pad
+#   - no symbol that must be double     d is under a pinky
+#   - most digrams seem comfortable to type
+
+altgr = '''
+╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮
+┆     ┃   ¹ │   ² │   ³ │   ⁴ │   ⁵ ┃   ⁶ │   ⁷ │   ⁸ │   ⁹ │   ⁰ ┃     ┆     ┆
+┆     ┃   ₁ │   ₂ │   ₃ │   ₄ │   ₅ ┃   ₆ │   ₇ │   ₈ │   ₉ │   ₀ ┃     ┆     ┆
+╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
+·     ┃  *^ │   ≤ │   ≥ │   € │   ‰ ┃   ° │     │   × │  *´ │  *` ┃     ┆     ┆
+·     ┃   ^ │   < │   > │   $ │   % ┃   @ │   & │   * │   ' │   ` ┃     ┆     ┆
+·     ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
+·     ┃  *ˇ │   ⁽ │   ⁾ │  *˙ │   ≠ ┃  */ │   ± │  *¯ │   ÷ │  *” ┃     ┆     ┆
+·     ┃   { │   ( │   ) │   } │   = ┃   \ │   + │   - │   / │   " ┃     ┆     ┆
+╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
+┆     ┃  *~ │  *, │  *˛ │   – │     ┃   ← │   → │   ⟹ │   ⟺ │  *˘ ┃           ·
+┆     ┃   ~ │   [ │   ] │   _ │   # ┃   | │   ! │   ; │   : │   ? ┃           ·
+╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚ · · · · · ·
+'''
+
+[spacebar]
+shift       = "\u202f"  # NARROW NO-BREAK SPACE
+altgr       = "\u00a0"  # NO-BREAK SPACE
+altgr_shift = "\u00a0"  # NO-BREAK SPACE
+1dk         = "\u2019"  # RIGHT SINGLE QUOTATION MARK
+1dk_shift   = "\u2019"  # RIGHT SINGLE QUOTATION MARK
