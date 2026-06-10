@@ -14,12 +14,12 @@ version     = "0.0.1"
 #    - 4 keys moved from left/right side or just 2 if omitting last transition
 #    - Shortcuts preserved: ZXCVB cluster, Q, W, A, S unchanged
 # - Intermediate Tarmak-like transitions:
-#    - Qwerty-Lafayette with 1dk under thumb, ; → no key
+#    - Qzerty-Lafayette with 1dk under thumb, ; → no key
 #    - "ejkn."
 #    - "loui" + duplicated "p" under [o]
-#    - "pé"
-#    - "sdt"
-#    - "hf"
+#    - "pà"
+#    - "jft"
+#    - "rasd"
 # - Good finger load for right-handed (47%/53%) (55/45 for Ergol, 59/41 for Qwerty)
 # - Good LSB (for column aligned keyboards): 2.61% VS 5.52% for Ergol
 # - Not so good SFU but acceptable to me on a columnar keyboard: 3.27% VS 1.32% for Ergol
@@ -32,13 +32,13 @@ base = '''
 ┆ ~   ┃ ! „ │ @ “ │ # ” │ $ ¢ │ % ‰ ┃ ^   │ &   │ *   │ (   │ )   ┃ _   ┆ + ± ┆
 ┆ `   ┃ 1 ¡ │ 2 « │ 3 » │ 4 £ │ 5 € ┃ 6 ¥ │ 7 ¤ │ 8 § │ 9 ¶ │ 0 ° ┃ - — ┆ = ≠ ┆
 ╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
-·     ┃ Q   │ W   │ F   │ D ™ │ J   ┃ Y   │ L   │ O   │ P   │ É   ┃ ? ¿ ┆ Z   ┆
-·     ┃     │   é │   è │   « │   » ┃     │   ù │   ï │   œ │     ┃***¨ ┆     ┆
+·     ┃ Q   │ É   │ F   │ D ™ │ J   ┃ Y   │ L   │ O   │ P   │ À   ┃ ? ¿ ┆ Z   ┆
+·     ┃     │   z │   è │   « │   » ┃     │   ù │   ï │   œ │     ┃***¨ ┆     ┆
 ·     ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
 ·     ┃ R   │ A   │ S   │ T ª │ G   │ H   │ N   │ E   │ I   │ U   ┃ "   ┆ W   ┆
 ·     ┃   à │   ß │   ê │   ‑ │   – ┃   ñ │   û │   î │   ô │   ? ┃ '   ┆     ┆
 ╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
-┆ À   ┃ Z   │ X   │ C   │ V   │ B   │ :   │ M º │ ; • │ K   │ ? ÷ ┃           ·
+┆ À   ┃ W   │ X   │ C   │ V   │ B   │ :   │ M º │ ; • │ K   │ ? ÷ ┃           ·
 ┆     ┃   æ │   × │   ç │   _ │   — ┃ . … │  *µ │ , · │   … │ / ¿ ┃           ·
 ╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚ · · · · · ·
 '''
