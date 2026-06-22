@@ -2,9 +2,9 @@
   ;; The key must be pressed twice in 200ms to enable repetitions.
   tap_timeout       200
   ;; The key must be held 200ms to become a layer shift.
-  hold_timeout      200
+  hold_timeout      150
   ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
-  long_hold_timeout 220
+  long_hold_timeout 180
   chord_timeout     20
   dance_timeout     200
 )
