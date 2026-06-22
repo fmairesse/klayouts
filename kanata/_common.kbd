@@ -27,7 +27,7 @@
 
   ;; Thumbs
   met  @shortcutsmet
-  lalt @shortcutsalt
+  lalt (tap-hold       $tap_timeout $hold_timeout      bspc @shortcutsalt)
   lctl (tap-hold       $tap_timeout $hold_timeout      spc  @shortcutsctl)
   ralt (tap-hold-press $tap_timeout $hold_timeout      [    ralt)
   rctl (tap-hold-press $tap_timeout $hold_timeout      del  @shortcutsctl)
