@@ -12,40 +12,40 @@
 
 (defsrc
   `
-  q     w     e     r     t               y     u     i     o     p     [
-  a     s     d     f     g               h     j     k     l     ;
-  z     x     c     v     b               n     m     ,     .     / 
+  tab   q     w     e     r     t               y     u     i     o     p     [
+  caps  a     s     d     f     g               h     j     k     l     ;
+        z     x     c     v     b               n     m     ,     .     / 
   lctl  lmet              lalt   spc   ralt  rctl
 )
 
 (deflayer base
-  esc
-  q     @ww   @ee   r     t               y     u     i     o     p     <
-  @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet
-  z     x     c     v     b               n     m     ,     .     /
+  caps
+  esc   q     @ww   @ee   r     t               y     u     i     o     p     [
+  tab   @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet
+        z     x     c     v     b               n     m     ,     .     /
   @lctl @met              @lalt @lctl @ralt @rctl
 )
 
 (deflayer navleft
   _
-  esc   XX    @zoot @zoin XX           pgup  home    up   end   esc    XX
-  tab   @nss  @ndd  @nff  XX           pgdn   lft  down  rght   tab
-  XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
+  _     esc   XX    @zoot @zoin XX           pgup  home    up   end   esc    XX
+  _     tab   @nss  @ndd  @nff  XX           pgdn   lft  down  rght   tab
+        XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
   _     _                 del    ret   bspc     _
 )
 
 (deflayer navright
   _
-  esc   XX    @zoot @zoin XX             XX    XX    XX    XX    XX    XX
-  tab   @nss  @ndd  @nff  XX             XX  rsft  rctl  lalt    XX
-  XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
+  _     esc   XX    @zoot @zoin XX             XX    XX    XX    XX    XX    XX
+  _     tab   @nss  @ndd  @nff  XX             XX  rsft  rctl  lalt    XX
+        XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
   _     _                 bspc   ret    del     _
 )
 
 (deflayer azerty
   _
-  a     ]     _     _     _               _     _     _     _     _     _
-  q     _     _     _     _               _     _     _     _     m
+  _     a     ]     _     _     _               _     _     _     _     _     _
+  _     q     _     _     _     _               _     _     _     _     m
   \     _     _     _     _               _     ;     _     _     _
   _     _                 _       _       _     _
 )
