@@ -29,7 +29,7 @@
   met  @shortcutsmet
   lalt @shortcutsalt
   lctl (tap-hold       $tap_timeout $hold_timeout      spc  @shortcutsctl)
-  ralt ralt
+  ralt (tap-hold-press $tap_timeout $hold_timeout      [    ralt)
   rctl (tap-hold-press $tap_timeout $hold_timeout      del  @shortcutsctl)
 
   ;; Nav
