@@ -8,6 +8,14 @@
 sudo env "PATH=$PATH" xkalamine install qzertyl.toml && sudo env "PATH=$PATH" xkalamine install lafayette.toml && setxkbmap
 ```
 
+### MacOs
+
+```
+kalamine build lafayette.toml
+mkdir -p "~/Library/Keyboard Layouts"
+cp dist/lafayette.toml "~/Library/Keyboard Layouts"
+```
+
 ## Differences
 
 ### Ergol and Qwerty-Lafayette
