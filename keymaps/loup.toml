@@ -8,22 +8,15 @@ url         = "https://github.com/fmairesse/klayouts"
 geometry    = "ERGO"
 version     = "0.0.1"
 
-# Optimized layout for french/english:
-# - Qwerty/Azerty based:
-#    - 14/30 keys moved from their initial position (21 for Colemak-DH, 23 for Ergol, 18 for Norman)
-#    - 4 keys moved from left/right side or just 2 if omitting last transition
-#    - Shortcuts preserved: ZXCVB cluster, Q, W, A, S unchanged
-# - Intermediate Tarmak-like transitions:
-#    - Qzerty-Lafayette with 1dk under thumb and é under [;]
-#    - "ejkn."
-#    - "loui"
-#    - "jft"
-#    - "rd"
-# - Good finger load for right-handed (47%/53%) (55/45 for Ergol, 59/41 for Qwerty)
-# - Good LSB (for column aligned keyboards): 2.61% VS 5.52% for Ergol
-# - Not so good SFU but acceptable to me on a columnar keyboard: 3.27% VS 1.32% for Ergol
-# - Rolls 17.7% inward and 13.5% VS 18.1%/15.5% for Ergol. Some good one:
-#    - en, in, ien, ion, me, ke, kn
+# asrt rather than arst because easier and does not make the stats worse on my corpus
+# accept CR SFU: already used to it and dont want wo move C
+# accept DR SFU: not a big deal and easy to learn
+# L moved to the left for better finger load. It had to move far from its original position anyway.
+# É instead of W because much more used in my corpus
+# J would have been better for english in place of K, but "je" is so much more frequent than "kn|ke" in my corpus.
+# P would theoretically be better in place of F. But this makes the moving of F more acceptable as
+# we get "of" and "if" and avoids moving P
+# 1dk to be used by thumb. Allows H on right pinky for easy "the"
 
 
 base = '''
@@ -31,14 +24,14 @@ base = '''
 ┆ ~   ┃ ! „ │ @ “ │ # ” │ $ ¢ │ % ‰ ┃ ^   │ &   │ *   │ (   │ )   ┃ _   ┆ + ± ┆
 ┆ `   ┃ 1 ¡ │ 2 « │ 3 » │ 4 £ │ 5 € ┃ 6 ¥ │ 7 ¤ │ 8 § │ 9 ¶ │ 0 ° ┃ - — ┆ = ≠ ┆
 ╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
-·     ┃ Q   │ W   │ F   │ D ™ │ J   ┃ Y   │ L   │ O   │ U   │ P   ┃ {   ┆ Z   ┆
-·     ┃     │   é │   è │   « │   » ┃     │   ô │   œ │   ù │     ┃ [   ┆     ┆
+·     ┃ Q   │ É   │ D   │ L ™ │ W   ┃ Y   │ F   │ O   │ U   │ P   ┃ {   ┆ }   ┆
+·     ┃   â │   é │   è │   « │   » ┃     │   ô │   œ │   ù │     ┃ [   ┆ ]   ┆
 ·     ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
-·     ┃ A   │ S   │ R   │ T ª │ G   ┃ H   │ N   │ E   │ I   │ ? ¿ ┃ "   ┆ W   ┆
-·     ┃   à │   ß │   ê │   ‑ │   – ┃   ñ │   è │   î │   ï │***¨ ┃ '   ┆     ┆
+·     ┃ A   │ S   │ R   │ T ª │ G   ┃ K   │ N   │ E   │ I   │ H   ┃ ? ¿ ┆ |   ┆
+·     ┃   à │   ß │   ê │   ‑ │   – ┃   ñ │     │   î │   ï │     ┃***¨ ┆ \   ┆
 ╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
-┆ À   ┃ Z   │ X   │ C   │ V   │ B   ┃ :   │ M º │ ; • │ K   │ ? ÷ ┃           ·
-┆     ┃   æ │   × │   ç │   _ │   — ┃ . … │  *µ │ , · │   … │ ! ¿ ┃           ·
+┆ À   ┃ Z   │ X   │ C   │ V   │ B   ┃ :   │ M º │ ; • │ J   │ ? ÷ ┃           ·
+┆     ┃   æ │     │   × │   ç │   — ┃ . … │  *µ │ , · │   … │ ! ¿ ┃           ·
 ╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚ · · · · · ·
 '''
 
