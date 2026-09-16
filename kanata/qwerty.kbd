@@ -20,8 +20,8 @@
 
 (deflayer base
   caps
-  esc   q     @ww   @ee   r     t               y     u     i     o     p     [
-  tab   @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet
+  tab   q     @ww   @ee   r     t               y     u     i     o     p     [
+  esc   @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet
         z     x     c     v     b               n     m     ,     .     /
   @lctl @met              @lalt @lctl @ralt @rctl
 )
