@@ -12,8 +12,8 @@ sudo env "PATH=$PATH" xkalamine install qzertyl.toml && sudo env "PATH=$PATH" xk
 
 ```
 kalamine build lafayette.toml
-mkdir -p "~/Library/Keyboard Layouts"
-cp dist/lafayette.toml "~/Library/Keyboard Layouts"
+mkdir -p ~/Library/Keyboard\ Layouts
+sudo cp dist/lafayfma.keylayout ~/Library/Keyboard\ Layouts/lafayfma.keylayout
 ```
 
 ## Differences
