@@ -1,0 +1,43 @@
+;; Needed by common
+(defalias
+  shortcutsctl lctl
+  shortcutsalt lalt
+  shortcutsmet lmet
+  zoin C-+
+  zoot C--
+)
+
+(include _common.kbd)
+(include _no-wide-mod.kbd)
+
+(defsrc
+  `
+  tab   q     w     e     r     t               y     u     i     o     p     [
+  caps  a     s     d     f     g               h     j     k     l     ;
+        z     x     c     v     b               n     m     ,     .     / 
+  lctl  lmet              lalt   spc   ralt  rctl
+)
+
+(deflayer base
+  caps
+  tab   q     @ww   @ee   r     t               y     u     i     o     p     [
+  esc   @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet
+        z     x     c     v     b               n     m     ,     .     /
+  @lctl @met              @lalt @lctl @ralt @rctl
+)
+
+(deflayer navleft
+  _
+  _     esc   XX    @zoot @zoin XX           pgup  home    up   end   esc    XX
+  _     tab   @nss  @ndd  @nff  XX           pgdn   lft  down  rght   tab
+        XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
+  _     _                 del    ret   bspc     _
+)
+
+(deflayer navright
+  _
+  _     esc   XX    @zoot @zoin XX             XX    XX    XX    XX    XX    XX
+  _     tab   @nss  @ndd  @nff  XX             XX  rsft  rctl  lalt    XX
+        XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
+  _     _                 bspc   ret    del     _
+)
