@@ -8,15 +8,79 @@ url         = "https://github.com/fmairesse/klayouts"
 geometry    = "ERGO"
 version     = "0.0.1"
 
-# asrt rather than arst because easier and does not make the stats worse on my corpus
-# accept CR SFU: already used to it and dont want wo move C
-# accept DR SFU: not a big deal and easy to learn
-# L moved to the left for better finger load. It had to move far from its original position anyway.
-# É instead of W because much more used in my corpus
-# J would have been better for english in place of K, but "je" is so much more frequent than "kn|ke" in my corpus.
-# P would theoretically be better in place of F. But this makes the moving of F more acceptable as
-# we get "of" and "if" and avoids moving P
-# 1dk to be used by thumb. Allows H on right pinky for easy "the"
+# Objectives
+# - Personal layout for me and myself, for typing in french and english.
+# - Reduced use of the outer columns for columnar keyboards
+#   - To me, Qwerty is frustating on a columnar keyboard because my hands needs so often to reach the outer columns. My motivation to use an alternative layout comes from this.
+# - Learnable! In other words, with a better return on investment than Ergol.
+#   - Minimum move of keys between hands.
+#     - One of the reason for my failure with Ergol is the side change of N and R I could never got used to.
+#   - Transitionable in a Tarmak-like manner. I don't want to spend nights on Monkey-Type before using the layout.
+# - Direct access to É
+#   - So frustated Ergol chose a position for - and not for É. Hyphen is easily reached from the symbols layer and É is so common.
+# - Preservation of Qwerty punctuation, or at least avoid confusion regarding punctuation
+#   - I plan to continue using Qwerty and the change of punctuation layout is very difficult for me when transitionning.
+# - Preservation of shortcuts
+#   - As a VSCode user, I want Ctrl+K to remain easily accessible
+# - Compatible with a 40% keyboard
+#   - Basically, I want the [/] key to be optional, so that an arrow cluster can fit on a 40% keyboard.
+# - Increase rolls in french and english
+#   - I'm not moving to another layout if it does not double my rolls.
+# - Avoid "bad" Same Finger Usage (SFU).
+#   - I think some SFUs are worse than others. For example, [WQ] is the worst, to me whereas [ED] is acceptable. So SFU is a metric I consider, but with nuance.
+#
+# Rationale
+# - Colemak style
+#   - E on the right → to relieve the left hand and balance finger load
+#   - N → EN – very frequent bigram (#1 in my corpus) – gets the best roll for the right hand
+#   - I → IEN – very frequent trigram – gets the best roll for the right hand
+#   - ARST → same as Colemak. Tried ASRT which is easier to learn but actually less confortable
+#     - ARST ⟹ "sc" descending SFU much better than "cr" ascending SFU with ASRT
+# - Loup style
+#   - Vowels cluster for french
+#     - OE stacking is OK as never used (we have "œ")
+#     - EU not so good but acceptable
+#     - Not putting U on the home row like Ergol or Colemak French touch as it does not feel good to me. I definitely prefer the "UI" descending SFU.
+#     - Good roll for "ion" and "ou"
+#     - Acceptable "oui"
+#   - Not moving P to the left but L instead:
+#     - better balancing
+#     - better place for L than in Colemak (#1 consonant that is not on the home row)
+#     - F in place of Colemak's L → good rolls for "of", "if", "for"
+#     - P keeps in place → rolls with vowels + nothing to learn
+#     - P could have been put on the home row but with less good rolls with vowels + ascending SFU for "ph"
+#     - P would theoretically be better in place of F. But this makes the moving of F more acceptable as we get "of" and "if"
+#   - J on the best position of the outer column.
+#     - I type "je" a lot
+#   - H on the home row
+#     - takes the place of the dead key for easy "he" ("the" is #1 trigram in my corpus)
+#   - M keeps its good place compared to Colemak DH
+#     - M still much used than H
+#   - D moves to make room for ARST but stills remains at a good position compared to Colemak (same column as in Colemak-DH)
+#   - Q moves to [T] position because "chaque" hurts and confuses me (azerty/qwerty confusion)
+#   - É takes the place of Q
+#     - Feels almost natural
+#     - Despite being more used than W (would be at a better position under [W]), W does not take [Q] position to avoid "was" SFU
+#
+# Transitions
+# 1. 1dk/H/J/N
+# 2. E/K
+# 3. L/I/O/U
+# 4. S/R/D
+# 5. F/T/É/Q
+#
+# Naming
+# At the beginning, L was at the Colemak position, so that "LOUP" (wolf in french) could be read on the keyboard.
+# It feels easy to learn that way but usage proved my right hand to be overloaded.
+# I replaced L by F to improve the balance with the benefits of "of" and "if" rolls.
+# However, I kept the name because I like it and lack imagination.
+#
+# Corpus
+# The analysis of the layout was made using the Kalamine analyser, but with a personal corpus of text exclusively written by me:
+# - 20 years of mails (only 1000), mainly in french
+# - 5 years of issues tracking, almost 600 issues, in english
+# - 1 year of professionnal instant messaging (mainly in french)
+# - 1 year of prompting (pro and personal, so half/half english/french)
 
 
 base = '''
