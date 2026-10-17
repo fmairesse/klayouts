@@ -1,51 +1,81 @@
-;; Needed by common
-(defalias
-  shortcutsctl (multi lctl (layer-while-held azerty))
-  shortcutsalt (multi lalt (layer-while-held azerty))
-  shortcutsmet (multi lmet (layer-while-held azerty))
-  zoin C-+
-  zoot C--
+(defvar
+  ;; The key must be pressed twice in 200ms to enable repetitions.
+  tap_timeout       200
+  ;; The key must be held 200ms to become a layer shift.
+  hold_timeout      150
+  ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
+  long_hold_timeout 180
+  chord_timeout     20
+  dance_timeout     200
 )
 
-(include _common.kbd)
-(include _no-wide-mod.kbd)
+(defalias
+  ;; Shortcuts
+  zoin  C-+
+  zoot  C--
+
+  ;; Home row mods
+  aa    (tap-hold       $tap_timeout $long_hold_timeout a    lmet)
+  ss    (tap-hold       $tap_timeout $long_hold_timeout s    lalt)
+  dd    (tap-hold       $tap_timeout $long_hold_timeout d    lctl)
+  ff    (tap-hold       $tap_timeout $long_hold_timeout f    lsft)
+  jj    (tap-hold       $tap_timeout $long_hold_timeout j    rsft)
+  kk    (tap-hold       $tap_timeout $long_hold_timeout k    rctl)
+  ll    (tap-hold       $tap_timeout $long_hold_timeout l    lalt)
+  rmet  (tap-hold       $tap_timeout $long_hold_timeout ;    rmet)
+
+  ;; Thumbs
+  lalt  (tap-hold       $tap_timeout $hold_timeout      bspc (layer-while-held nav))
+  lctl  (tap-hold       $tap_timeout $hold_timeout      spc  lctl)
+  ralt  (tap-hold-press $tap_timeout $hold_timeout      del  ralt)
+
+  ;; Nav
+  ;; Alt + navigation keys
+  ;; Not using (multi alt (layer-while-held nav)) combined with (release-key alt) otherwise focus
+  ;; given to the menu bar of the window while using the nav layer
+  ;; → alt-tab does not work as expected
+  atab  (multi alt tab)
+  alsf  (multi alt lsft)
+  arsf  (multi alt rsft)
+  actl  (multi alt lctl)
+  amet  (multi alt lmet)
+  aret  (multi alt ret)
+  alft  (multi alt left)
+  argt  (multi alt right)
+  aup   (multi alt up)
+  adwn  (multi alt down)
+)
+
+(defcfg
+  ;; Enabled makes kanata process keys that are not defined in defsrc
+  ;; Fixes altgr for Windows (see Arsenik issue #22)
+  process-unmapped-keys yes
+  windows-altgr cancel-lctl-press
+  concurrent-tap-hold true ;; for defchordsv2 to work
+  danger-enable-cmd false
+)
+
 
 (defsrc
-  `
-  tab   q     w     e     r     t               y     u     i     o     p     [
-  caps  a     s     d     f     g               h     j     k     l     ;
-        z     x     c     v     b               n     m     ,     .     / 
-  lctl  lmet              lalt   spc   ralt  rctl
+  tab   q     w     e     r     t               y     u     i     o     p
+  caps  a     s     d     f     g               h     j     k     l     ;   ret
+  lsft  z     x     c     v     b               n     m     ,     .     /  rsft
+  lctl  lmet              lalt         spc         ralt  rctl
+  left  down  up  right
 )
 
 (deflayer base
-  caps
-  tab   q     @ww   @ee   r     t               y     u     i     o     p     [
-  esc   @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet
-        z     x     c     v     b               n     m     ,     .     /
-  @lctl @met              @lalt @lctl @ralt @rctl
+  tab   q     w     e     r     t               y     u     i     o     p
+  esc   @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet   ret
+  lsft  z     x     c     v     b               n     m     ,     .     /  rsft
+  lctl  lmet              @lalt       @lctl       @ralt  rctl
+  left  down  up  right
 )
 
-(deflayer navleft
-  _
-  _     esc   XX    @zoot @zoin XX           pgup  home    up   end   esc    XX
-  _     tab   @nss  @ndd  @nff  XX           pgdn   lft  down  rght   tab
-        XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
-  _     _                 del    ret   bspc     _
-)
-
-(deflayer navright
-  _
-  _     esc   XX    @zoot @zoin XX             XX    XX    XX    XX    XX    XX
-  _     tab   @nss  @ndd  @nff  XX             XX  rsft  rctl  lalt    XX
-        XX    XX    XX    XX    lrld           XX    XX    XX    XX    XX
-  _     _                 bspc   ret    del     _
-)
-
-(deflayer azerty
-  _
-  _     a     ]     _     _     _               _     _     _     _     _     _
-  _     q     _     _     _     _               _     _     _     _     m
-  \     _     _     _     _               _     ;     _     _     _
-  _     _                 _       _       _     _
+(deflayer nav
+  @atab XX    XX    XX    XX    XX           pgup  home    up   end   esc
+  caps  XX    lalt  lctl  lsft  XX           pgdn   lft  down  rght   tab @aret
+  @alsf 3     2     1     0     lrld        @zoot @zoin   bck   fwd    XX @arsf
+  @actl @amet             -           ret          bspc @actl
+  @alft @adwn @aup   @argt
 )
