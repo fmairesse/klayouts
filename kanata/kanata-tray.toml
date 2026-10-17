@@ -22,10 +22,10 @@ kanata_executable = '/home/fabien/bin/kanata'
 kanata_config = './qwerty.kbd'
 autorun = false
 
-[presets.'Azerty']
-kanata_executable = '/home/fabien/bin/kanata'
-kanata_config = './azerty.kbd'
-autorun = false
+# [presets.'Azerty']
+# kanata_executable = '/home/fabien/bin/kanata'
+# kanata_config = './azerty.kbd'
+# autorun = false
 
 # [presets.'Qwerty angle mod']
 # kanata_executable = '/home/fabien/bin/kanata'
