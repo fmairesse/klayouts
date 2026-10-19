@@ -19,7 +19,7 @@ nav = 'navigation.png'
 
 [presets.'Qwerty']
 kanata_executable = '/home/fabien/bin/kanata'
-kanata_config = './qwerty.kbd'
+kanata_config = './qwerty-pc.kbd'
 autorun = false
 
 # [presets.'Azerty']
