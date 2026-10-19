@@ -1,0 +1,113 @@
+(defvar
+  ;; The key must be pressed twice in 200ms to enable repetitions.
+  tap_timeout       200
+  ;; The key must be held 200ms to become a layer shift.
+  hold_timeout      150
+  ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
+  long_hold_timeout 180
+  chord_timeout     20
+  dance_timeout     200
+)
+
+(defcfg
+  ;; Enabled makes kanata process keys that are not defined in defsrc
+  ;; Fixes altgr for Windows (see Arsenik issue #22)
+  process-unmapped-keys yes
+  windows-altgr cancel-lctl-press
+  concurrent-tap-hold true ;; for defchordsv2 to work
+  danger-enable-cmd false
+)
+
+(deffakekeys
+  ;; Alt-Tab from https://github.com/rpnfan/Anymak
+  ;; needed for alt-tab to work on layer, realized with multi and macro definitions
+  vk-alt  lalt
+  vk-ctl  lctl
+  vk-nvlk (layer-while-held nav)
+)
+
+(defalias
+  ;; Shortcuts
+  zoin  C-+
+  zoot  C--
+
+  ;; Home row mods
+  aa    (tap-hold       $tap_timeout $long_hold_timeout a    lmet)
+  ss    (tap-hold       $tap_timeout $long_hold_timeout s    lalt)
+  dd    (tap-hold       $tap_timeout $long_hold_timeout d    lctl)
+  ff    (tap-hold       $tap_timeout $long_hold_timeout f    lsft)
+  jj    (tap-hold       $tap_timeout $long_hold_timeout j    rsft)
+  kk    (tap-hold       $tap_timeout $long_hold_timeout k    rctl)
+  ll    (tap-hold       $tap_timeout $long_hold_timeout l    lalt)
+  rmet  (tap-hold       $tap_timeout $long_hold_timeout ;    rmet)
+
+  ;; Shift under pinkes
+  ls    lsft
+  rs    (tap-hold       $tap_timeout $long_hold_timeout /    rsft)
+
+  ;; Thumbs
+  lalt  (tap-hold       $tap_timeout $hold_timeout      bspc 
+    (multi ;; multi needed for alt-tab on layer
+      (on-press release-virtualkey vk-alt)   ;; clear any leaked alt from a previous cycle, safety measure for potential LLHook issues, costs nothing if Alt is already released
+      (on-press release-virtualkey vk-ctl)
+      (layer-while-held nav) 
+      (on-release release-virtualkey vk-alt)
+      (on-release release-virtualkey vk-ctl)
+    )
+  )
+  lctl  (tap-hold       $tap_timeout $hold_timeout      spc lctl)
+  ralt  (tap-hold-press $tap_timeout $hold_timeout      del ralt)
+
+  ;; Nav
+  atab  (macro (on-release release-virtualkey vk-ctl) (on-press press-virtualkey vk-alt) 10 tab) ;; needs a short delay to not trigger tab on the first press - 1 is fine, 5 or higher to be on the safe side
+  ctab  (macro (on-release release-virtualkey vk-alt) (on-press press-virtualkey vk-ctl) 10 tab)
+  stab  (macro (on-release release-virtualkey vk-alt) (on-press press-virtualkey vk-ctl) 10 S-tab)
+  alsf  (multi alt lsft)
+  arsf  (multi alt rsft)
+  actl  (multi alt lctl)
+  amet  (multi alt lmet)
+  aret  (multi alt ret)
+  alft  (multi alt left)
+  argt  (multi alt right)
+  aup   (multi alt up)
+  adwn  (multi alt down)
+  clft  (multi ctl left)
+  crgt  (multi ctl rght)
+  cbsp  (multi ctl bspc)
+  cdel  (multi ctl del)
+  nvlk  (on-press toggle-vkey vk-nvlk)
+)
+
+(defsrc
+  tab         q     w     e     r     t               y     u     i     o     p
+  caps        a     s     d     f     g               h     j     k     l     ;   ret
+  lsft        z     x     c     v     b               n     m     ,     .     /  rsft
+  lctl  <     lmet              lalt         spc         ralt  rctl
+  left  down  up    rght
+)
+
+(deflayer base
+  tab         q     w     e     r     t               y     u     i     o     p
+  esc         @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet   ret
+  lsft        z     x     c     v     b               n     m     ,     .   @rs  rsft
+  lctl  lsft  lmet              @lalt       @lctl       @ralt  rctl
+  left  down  up    rght
+)
+
+;; When combining `d`+`c`+`k` on Dell Precison 5490, `k` is not sent
+;; That's why `lsft` is put on `v`.
+(deflayer nav
+  @atab       @stab @ctab @atab  bck  XX           pgup  home    up   end   tab
+  caps        lmet  lalt  lctl   fwd  XX           pgdn  left  down  rght   esc @aret
+  @alsf       XX    XX    lsft   lsft lrld        @nvlk @clft @cdel @crgt    XX @arsf
+  @actl -     @amet              -           ret        @cbsp @actl
+  @alft @adwn @aup   @argt
+)
+
+(deflayer void
+  -           -     -     -     -     -               -     -     -     -     -
+  -           -     -     -     -     -               -     -     -     -     -     -
+  -           -     -     -     -     -               -     -     -     -     -     -
+  -     -     -                 -             -             -     -
+  -     -     -     -
+)
