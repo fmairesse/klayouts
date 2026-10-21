@@ -1,12 +1,12 @@
 (defvar
   ;; The key must be pressed twice in 200ms to enable repetitions.
-  tap_timeout       200
-  ;; The key must be held 200ms to become a layer shift.
-  hold_timeout      150
+  tap_timeout        200
+  short_hold_timeout 120
+  med_hold_timeout   150
   ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
-  long_hold_timeout 180
-  chord_timeout     20
-  dance_timeout     200
+  long_hold_timeout  180
+  chord_timeout      20
+  dance_timeout      200
 )
 
 (defcfg
@@ -14,7 +14,7 @@
   ;; Fixes altgr for Windows (see Arsenik issue #22)
   process-unmapped-keys yes
   windows-altgr cancel-lctl-press
-  concurrent-tap-hold true ;; for defchordsv2 to work
+  ;; concurrent-tap-hold true ;; for defchordsv2 to work
   danger-enable-cmd false
 )
 
@@ -46,7 +46,7 @@
   rs    (tap-hold       $tap_timeout $long_hold_timeout /    rsft)
 
   ;; Thumbs
-  lalt  (tap-hold       $tap_timeout $hold_timeout      bspc 
+  lalt  (tap-hold       $tap_timeout $short_hold_timeout      bspc 
     (multi ;; multi needed for alt-tab on layer
       (on-press release-virtualkey vk-alt)   ;; clear any leaked alt from a previous cycle, safety measure for potential LLHook issues, costs nothing if Alt is already released
       (on-press release-virtualkey vk-ctl)
@@ -55,27 +55,24 @@
       (on-release release-virtualkey vk-ctl)
     )
   )
-  lctl  (tap-hold       $tap_timeout $hold_timeout      spc lctl)
-  ralt  (tap-hold-press $tap_timeout $hold_timeout      del ralt)
+  spctl (tap-hold       $tap_timeout $med_hold_timeout        spc lctl)
+  ralt  (tap-hold-press $tap_timeout $short_hold_timeout      del ralt)
 
   ;; Nav
-  atab  (macro (on-release release-virtualkey vk-ctl) (on-press press-virtualkey vk-alt) 10 tab) ;; needs a short delay to not trigger tab on the first press - 1 is fine, 5 or higher to be on the safe side
-  ctab  (macro (on-release release-virtualkey vk-alt) (on-press press-virtualkey vk-ctl) 10 tab)
-  stab  (macro (on-release release-virtualkey vk-alt) (on-press press-virtualkey vk-ctl) 10 S-tab)
+  atab  (macro (on-press release-virtualkey vk-ctl) (on-press press-virtualkey vk-alt) 10 tab) ;; needs a short delay to not trigger tab on the first press - 1 is fine, 5 or higher to be on the safe side
+  astab (macro (on-press release-virtualkey vk-ctl) (on-press press-virtualkey vk-alt) 10 S-tab) ;; needs a short delay to not trigger tab on the first press - 1 is fine, 5 or higher to be on the safe side
+  ctab  (macro (on-press release-virtualkey vk-alt) (on-press press-virtualkey vk-ctl) 10 tab)
+  stab  (macro (on-press release-virtualkey vk-alt) (on-press press-virtualkey vk-ctl) 10 S-tab)
   alsf  (multi alt lsft)
   arsf  (multi alt rsft)
   actl  (multi alt lctl)
   amet  (multi alt lmet)
-  aret  (multi alt ret)
-  alft  (multi alt left)
-  argt  (multi alt right)
-  aup   (multi alt up)
-  adwn  (multi alt down)
-  clft  (multi ctl left)
-  crgt  (multi ctl rght)
-  cbsp  (multi ctl bspc)
-  cdel  (multi ctl del)
   nvlk  (on-press toggle-vkey vk-nvlk)
+  nvspc (tap-hold $tap_timeout $short_hold_timeout
+    (macro
+      (on-press release-virtualkey vk-ctl)
+      (on-press release-virtualkey vk-alt) ret)
+    lsft)
 )
 
 (defsrc
@@ -90,18 +87,16 @@
   tab         q     w     e     r     t               y     u     i     o     p
   esc         @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet   ret
   lsft        z     x     c     v     b               n     m     ,     .   @rs  rsft
-  lctl  lsft  lmet              @lalt       @lctl       @ralt  rctl
-  left  down  up    rght
+  lctl  lsft  lmet              @lalt      @spctl       @ralt  rctl
+  ◀     ▼     ▲     ▶
 )
 
-;; When combining `d`+`c`+`k` on Dell Precison 5490, `k` is not sent
-;; That's why `lsft` is put on `v`.
 (deflayer nav
-  @atab       @stab @ctab @atab  bck  XX           pgup  home    up   end   tab
-  caps        lmet  lalt  lctl   fwd  XX           pgdn  left  down  rght   esc @aret
-  @alsf       XX    XX    lsft   lsft lrld        @nvlk @clft @cdel @crgt    XX @arsf
-  @actl -     @amet              -           ret        @cbsp @actl
-  @alft @adwn @aup   @argt
+  @atab       esc   @astab @atab XX   XX           pgup  home     ▲   end S-tab
+  caps        lmet  XX    bck    fwd  XX           pgdn     ◀     ▼     ▶   tab  A-⏎
+  @alsf       XX    @stab @ctab  C-w  lrld           XX   C-◀   C-▶   C-▶    XX @arsf
+  @actl -     @amet              -         @nvspc         esc @actl
+  A-◀   A-▼   A-▲   A-▶
 )
 
 (deflayer void
