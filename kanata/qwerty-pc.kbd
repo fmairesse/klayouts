@@ -100,8 +100,8 @@
 
 (deflayer nav-layer
   @atab       @stab @ctab @atab  bck  XX           pgup  home     ▲   end   esc  bspc   del
-  caps        lmet  XX    bck    fwd  XX           pgdn     ◀     ▼     ▶   tab  A-⏎
-  @alsf       lalt  lctl  lsft   XX   lrld        @nvlk   C-◀   C-▶   C-▶    XX @arsf
+  caps        lmet  lalt  lctl   fwd  XX           pgdn     ◀     ▼     ▶   tab  A-⏎
+  @alsf       XX    XX    bck    fwd  lrld        @nvlk   C-◀   C-▶   C-▶    XX @arsf
   @actl -     @amet              _         @nvspc         _   @actl
   A-◀   A-▼   A-▲   A-▶
 )
