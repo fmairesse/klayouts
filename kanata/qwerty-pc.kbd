@@ -19,8 +19,13 @@
   ;; Fixes altgr for Windows (see Arsenik issue #22)
   process-unmapped-keys yes
   windows-altgr cancel-lctl-press
-  ;; concurrent-tap-hold true ;; for defchordsv2 to work
+  concurrent-tap-hold true ;; for defchordsv2 to work
   danger-enable-cmd false
+)
+
+(defchordsv2
+  ;; Map evil copilot key to something useful
+  (lsft lmet f23) del 10 first-release ()
 )
 
 (deffakekeys
@@ -54,11 +59,11 @@
     (on-release release-virtualkey vk-alt)
     (on-release release-virtualkey vk-ctl)
   )
-  lalt (tap-hold $tap_timeout $short_hold_timeout bspc
+  lalt (tap-hold $tap_timeout $short_hold_timeout esc
     (fork @nav lalt (lctl))
   )
-  spctl (tap-hold       $tap_timeout $med_hold_timeout        spc lctl)
-  ralt  (tap-hold-press $tap_timeout $short_hold_timeout      del ralt)
+  spctl (tap-hold       $tap_timeout $med_hold_timeout        spc  lctl)
+  ralt  (tap-hold-press $tap_timeout $short_hold_timeout      bspc ralt)
 
   ;; Nav
   atab  (macro (on-press release-virtualkey vk-ctl) (on-press press-virtualkey vk-alt) 10 tab) ;; needs a short delay to not trigger tab on the first press - 1 is fine, 5 or higher to be on the safe side
@@ -78,7 +83,7 @@
 )
 
 (defsrc
-  tab         q     w     e     r     t               y     u     i     o     p
+  tab         q     w     e     r     t               y     u     i     o     p     [     ]
   caps        a     s     d     f     g               h     j     k     l     ;   ret
   lsft        z     x     c     v     b               n     m     ,     .     /  rsft
   lctl  <     lmet              lalt         spc         ralt  rctl
@@ -86,7 +91,7 @@
 )
 
 (deflayer base-layer
-  tab         q     w     e     r     t               y     u     i     o     p
+  tab         q     w     e     r     t               y     u     i     o     p     [     ]
   esc         @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet   ret
   lsft        z     x     c     v     b               n     m     ,     .     /  rsft
   lctl  lsft  lmet              @lalt      @spctl       @ralt  rctl
@@ -94,17 +99,17 @@
 )
 
 (deflayer nav-layer
-  @atab       @stab @ctab @atab  bck  XX           pgup  home     ▲   end   tab
+  @atab       @stab @ctab @atab  bck  XX           pgup  home     ▲   end   esc  bspc   del
   caps        lmet  XX    bck    fwd  XX           pgdn     ◀     ▼     ▶   tab  A-⏎
   @alsf       lalt  lctl  lsft   XX   lrld        @nvlk   C-◀   C-▶   C-▶    XX @arsf
-  @actl -     @amet              -         @nvspc         esc @actl
+  @actl -     @amet              _         @nvspc         _   @actl
   A-◀   A-▼   A-▲   A-▶
 )
 
 (deflayer void
-  -           -     -     -     -     -               -     -     -     -     -
-  -           -     -     -     -     -               -     -     -     -     -     -
-  -           -     -     -     -     -               -     -     -     -     -     -
-  -     -     -                 -             -             -     -
-  -     -     -     -
+  _           _     _     _     _     _               _     _     _     _     _     _     _
+  _           _     _     _     _     _               _     _     _     _     _     _
+  _           _     _     _     _     _               _     _     _     _     _     _
+  _     _     _                 _             _             _     _
+  _     _     _     _
 )
