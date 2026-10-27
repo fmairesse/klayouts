@@ -15,12 +15,13 @@ autorestart_on_crash = false
 # Documentation: https://github.com/rszyma/kanata-tray/blob/main/doc/hooks.md
 
 [defaults.layer_icons]
-nav = 'navigation.png'
+nav-layer = 'navigation.png'
+sym-layer = 'symbols.png'
 
 [presets.'Qwerty']
 kanata_executable = '/home/fabien/bin/kanata'
 kanata_config = './qwerty-pc.kbd'
-autorun = false
+autorun = true
 
 # [presets.'Azerty']
 # kanata_executable = '/home/fabien/bin/kanata'
