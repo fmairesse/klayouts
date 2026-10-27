@@ -41,7 +41,16 @@
   zoin  C-+
   zoot  C--
 
-  ;; Home row mods
+  ;; Nav
+  nav (multi
+    (on-press release-virtualkey vk-alt)
+    (on-press release-virtualkey vk-ctl)
+    (layer-while-held nav-layer)
+    (on-release release-virtualkey vk-alt)
+    (on-release release-virtualkey vk-ctl)
+  )
+
+  ;; Row mods
   aa    (tap-hold       $tap_timeout $long_hold_timeout a    lmet)
   ss    (tap-hold       $tap_timeout $long_hold_timeout s    lalt)
   dd    (tap-hold       $tap_timeout $long_hold_timeout d    lctl)
@@ -52,28 +61,16 @@
   rmet  (tap-hold       $tap_timeout $long_hold_timeout ;    rmet)
 
   ;; Thumbs
-  nav (multi
-    (on-press release-virtualkey vk-alt)
-    (on-press release-virtualkey vk-ctl)
-    (layer-while-held nav-layer)
-    (on-release release-virtualkey vk-alt)
-    (on-release release-virtualkey vk-ctl)
-  )
-  lalt (tap-hold $tap_timeout $short_hold_timeout esc
-    (fork @nav lalt (lctl))
-  )
-  spctl (tap-hold       $tap_timeout $med_hold_timeout        spc  lctl)
-  ralt  (tap-hold-press $tap_timeout $short_hold_timeout      bspc ralt)
+  t1l  (tap-hold $tap_timeout $short_hold_timeout lmet lalt)
+  t2l  (tap-hold $tap_timeout $short_hold_timeout bspc lctl)
+  spc  (tap-hold $tap_timeout $med_hold_timeout   spc  @nav)
+  t2r  (tap-hold $tap_timeout $short_hold_timeout del  (multi ralt (layer-while-held sym-layer)))
 
   ;; Nav
   atab  (macro (on-press release-virtualkey vk-ctl) (on-press press-virtualkey vk-alt) 10 tab) ;; needs a short delay to not trigger tab on the first press - 1 is fine, 5 or higher to be on the safe side
   astb  (macro (on-press release-virtualkey vk-ctl) (on-press press-virtualkey vk-alt) 10 S-tab) ;; needs a short delay to not trigger tab on the first press - 1 is fine, 5 or higher to be on the safe side
   ctab  (macro (on-press release-virtualkey vk-alt) (on-press press-virtualkey vk-ctl) 10 tab)
   stab  (macro (on-press release-virtualkey vk-alt) (on-press press-virtualkey vk-ctl) 10 S-tab)
-  alsf  (multi alt lsft)
-  arsf  (multi alt rsft)
-  actl  (multi alt lctl)
-  amet  (multi alt lmet)
   nvlk  (on-press toggle-vkey vk-nvlk)
   nvspc (tap-hold $tap_timeout $short_hold_timeout
     (macro
@@ -83,33 +80,36 @@
 )
 
 (defsrc
-  tab         q     w     e     r     t               y     u     i     o     p     [     ]
-  caps        a     s     d     f     g               h     j     k     l     ;   ret
-  lsft        z     x     c     v     b               n     m     ,     .     /  rsft
-  lctl  <     lmet              lalt         spc         ralt  rctl
-  left  down  up    rght
+  tab   q     w     e     r     t               y     u     i     o     p     [     ]
+  caps  a     s     d     f     g               h     j     k     l     ;     '
+        z     x     c     v     b               n     m     ,     .     /
+  lctl  lmet  lalt                     spc               ralt
 )
 
 (deflayer base-layer
-  tab         q     w     e     r     t               y     u     i     o     p     [     ]
-  esc         @aa   @ss   @dd   @ff   g               h   @jj   @kk   @ll @rmet   ret
-  lsft        z     x     c     v     b               n     m     ,     .     /  rsft
-  lctl  lsft  lmet              @lalt      @spctl       @ralt  rctl
-  ◀     ▼     ▲     ▶
+  tab   q     w     e     r     t               y     u     i     o     p     [     ]
+  esc   a     @ss   @dd   @ff   g               h   @jj   @kk   @ll     ;     '
+        z     x     c     v     b               n     m     ,     .     /
+  lmet  @t1l  @t2l                    @spc               @t2r
 )
 
 (deflayer nav-layer
-  @atab       @stab @ctab @atab  bck  XX           pgup  home     ▲   end   esc  bspc   del
-  caps        lmet  lalt  lctl   fwd  XX           pgdn     ◀     ▼     ▶   tab  A-⏎
-  @alsf       XX    XX    bck    fwd  lrld        @nvlk   C-◀   C-▶   C-▶    XX @arsf
-  @actl -     @amet              _         @nvspc         _   @actl
-  A-◀   A-▼   A-▲   A-▶
+  _     @stab @ctab @atab  bck  XX           pgup  home     ▲   end   esc  bspc   del
+  caps  lmet  lalt  lctl   fwd  XX           pgdn     ◀     ▼     ▶   tab   ret
+        XX    XX    bck    fwd  lrld        @nvlk   C-◀   C-▶   C-▶    XX
+  _     _     _                      @nvspc                 _
+)
+
+(deflayer sym-layer
+  _     _     _     _     _     _               _     _     _     _     _     _     _
+  _     _     _     _     _     _               _     _     _     _     _     _
+        _     _     _     _     _               _     _     _     _     _
+  _     _     C-bspc                   ret                  _
 )
 
 (deflayer void
-  _           _     _     _     _     _               _     _     _     _     _     _     _
-  _           _     _     _     _     _               _     _     _     _     _     _
-  _           _     _     _     _     _               _     _     _     _     _     _
-  _     _     _                 _             _             _     _
-  _     _     _     _
+  _     _     _     _     _     _               _     _     _     _     _     _     _
+  _     _     _     _     _     _               _     _     _     _     _     _
+        _     _     _     _     _               _     _     _     _     _
+  _     _     _                         _                   _
 )
