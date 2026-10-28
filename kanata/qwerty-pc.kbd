@@ -94,9 +94,9 @@
 )
 
 (deflayer nav-layer
-  _     @stab @ctab @atab  bck  XX           pgup  home     ▲   end   esc  bspc   del
-  caps  lmet  lalt  lctl   fwd  XX           pgdn     ◀     ▼     ▶   tab   ret
-        XX    XX    bck    fwd  lrld        @nvlk   C-◀   C-▶   C-▶    XX
+  lrld  @stab @ctab @atab  XX   ret          pgup  home     ▲   end   esc  bspc   del
+  caps  4     3     2      1    0            pgdn     ◀     ▼     ▶   tab   ret
+        XX    XX    bck    fwd  caps        @nvlk   C-◀   C-▶   C-▶    XX
   _     _     _                      @nvspc                 _
 )
 
