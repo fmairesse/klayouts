@@ -16,6 +16,7 @@ autorestart_on_crash = false
 
 [defaults.layer_icons]
 nav-layer = 'navigation.png'
+nav-layer-locked = 'navigation.png'
 sym-layer = 'symbols.png'
 
 [presets.'Qwerty']

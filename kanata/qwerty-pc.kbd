@@ -33,7 +33,7 @@
   ;; needed for alt-tab to work on layer, realized with multi and macro definitions
   vk-alt  lalt
   vk-ctl  lctl
-  vk-nvlk (layer-while-held nav-layer)
+  vk-nvlk (layer-while-held nav-locked-layer)
 )
 
 (defalias
@@ -97,6 +97,13 @@
   lrld  @stab @ctab @atab  XX   ret          pgup  home     ▲   end   esc  bspc
   caps  4     3     2      1    0            pgdn     ◀     ▼     ▶   tab   ret
         XX    XX    bck    fwd  caps        @nvlk   C-◀   C-▶   C-▶    XX
+  _     _     _                      @nvspc                 _
+)
+
+(deflayer nav-locked-layer
+  esc   C-y   XX    XX     XX   ret          pgup  home     ▲   end   esc  bspc
+  tab   lmet  lalt  lctl   lsft XX           pgdn     ◀     ▼     ▶   tab   ret
+        C-z   C-x   C-c    C-v  XX          @nvlk   C-◀   C-▶   C-▶    XX
   _     _     _                      @nvspc                 _
 )
 
