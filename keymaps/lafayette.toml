@@ -36,8 +36,8 @@ base = '''
 ·     ┃ A   │ S   │ D   │ F ª │ G – ┃ H   │ J   │ K   │ L   │ !   ┃ "   ┆ |   ┆
 ·     ┃   à │   ß │   ê │   ‑ │   – ┃   ŷ │   û │   î │   ô │***¨ ┃ '   ┆ \   ┆
 ╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
-┆ >   ┃ Z   │ X   │ C   │ V _ │ B — ┃ N   │ M º │ ;   │ :   │ ?   ┃           ·
-┆ <   ┃   â │   × │   ç │   _ │   — ┃   ñ │  *µ │ ,   │ . … │ /   ┃           ·
+┆ Z   ┃ Z   │ X   │ C   │ V _ │ B — ┃ N   │ M º │ ; • │ :   │ ? ÷ ┃           ·
+┆     ┃   â │   × │   ç │   _ │   — ┃   ñ │  *µ │ , · │ . … │ / ¿ ┃           ·
 ╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚ · · · · · ·
 '''
 
@@ -54,7 +54,7 @@ base = '''
 #   - 3rd row: shell / punctuation signs
 # Efficiency:
 #   - no symbols outside of the 3×10 alpha pad
-#   - no symbol that must be double     d is under a pinky
+#   - no symbol that must be doubled is under a pinky
 #   - most digrams seem comfortable to type
 
 altgr = '''
@@ -66,7 +66,7 @@ altgr = '''
 ·     ┃   ^ │   < │   > │   $ │   % ┃   @ │   & │   * │   ' │   ` ┃     ┆     ┆
 ·     ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
 ·     ┃  *ˇ │   ⁽ │   ⁾ │  *˙ │   ≠ ┃  */ │   ± │  *¯ │   ÷ │  *” ┃     ┆     ┆
-·     ┃   { │   ( │   ) │   } │   = ┃   \ │   + │   - │   / │   " ┃     ┆     ┆
+·     ┃   { │   ( │   ) │   } │   = ┃   \ │   + │   - │   / │   " ┃     ┆     ┆
 ╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
 ┆     ┃  *~ │  *, │  *˛ │   – │     ┃     │   ⟺ │   ← │   → │   ⟹ ┃           ·
 ┆     ┃   ~ │   [ │   ] │   _ │   # ┃   | │   ! │   ; │   : │   ? ┃           ·
@@ -75,7 +75,7 @@ altgr = '''
 
 [spacebar]
 shift       = "\u202f"  # NARROW NO-BREAK SPACE
-altgr       = "\u00a0"  # NO-BREAK SPACE
+altgr       = "\u0020"  # SPACE
 altgr_shift = "\u00a0"  # NO-BREAK SPACE
 1dk         = "\u2019"  # RIGHT SINGLE QUOTATION MARK
 1dk_shift   = "\u2019"  # RIGHT SINGLE QUOTATION MARK
