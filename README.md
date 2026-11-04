@@ -11,7 +11,8 @@ sudo env "PATH=$PATH" xkalamine install qzertyl.toml && sudo env "PATH=$PATH" xk
 ### MacOs
 
 ```
-kalamine build lafayette.toml
+cd ../kalamine
+poetry run kalamine build ../klayouts/keymaps/lafayette-fma.toml -out ./dist/lafayfma.keylayout
 mkdir -p ~/Library/Keyboard\ Layouts
 sudo cp dist/lafayfma.keylayout ~/Library/Keyboard\ Layouts/lafayfma.keylayout
 ```
