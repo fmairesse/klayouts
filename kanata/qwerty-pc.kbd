@@ -87,8 +87,8 @@
 )
 
 (deflayer base-layer
-  esc   q     w     e     r     t               y     u     i     o     p  bspc
-  tab   a     @ss   @dd   @ff   g               h   @jj   @kk   @ll     ;   ret
+  tab   q     w     e     r     t               y     u     i     o     p  bspc
+  esc   a     @ss   @dd   @ff   g               h   @jj   @kk   @ll     ;   ret
         z     x     c     v     b               n     m     ,     .     /
   lmet  @t1l  @t2l                    @spc               @t2r
 )
@@ -101,8 +101,8 @@
 )
 
 (deflayer nav-locked-layer
-  esc   C-y   XX    XX     XX   XX           pgup  home     ▲   end   esc  bspc
-  tab   lmet  lalt  lctl   lsft XX           pgdn     ◀     ▼     ▶   tab   ret
+  _     C-y   XX    XX     XX   XX           pgup  home     ▲   end   esc  bspc
+  _     lmet  lalt  lctl   lsft XX           pgdn     ◀     ▼     ▶   tab   ret
         C-z   C-x   C-c    C-v  XX          @nvlk   C-◀   C-▶   C-▶    XX
   _     _     _                      @nvspc                 _
 )
